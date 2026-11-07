@@ -13,7 +13,9 @@ Find and clean similar photos in your library. Compare side by side, keep the be
 
 ## Privacy
 
-PhotoGem works entirely on your device. Your photos are never uploaded or shared. All analysis happens locally.
+PhotoGem analyzes photos on your iPhone or iPad. On Mac, Photo Picks also runs on-device by default. Starting in version 1.2.4 for Mac, you can choose an external AI provider, save your own API key and allow Photo Picks to send resized photo previews or face crops directly to that provider for comparison, including during Shortcuts runs.
+
+PhotoGem can access the NAS or iCloud Photos library you use. You can also enable encrypted photo-matching data sync through your iCloud Drive. The bilingual [Privacy Policy](https://antcode97.github.io/photo-gem-public/privacy-policy.html) explains what each feature sends and how to turn it off.
 
 ## Platforms
 

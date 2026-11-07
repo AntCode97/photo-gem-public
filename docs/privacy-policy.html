@@ -24,74 +24,60 @@
 
 <div class="lang"><a href="#ko">한국어</a> <a href="#en">English</a></div>
 
-<section id="ko">
+<section id="ko" lang="ko">
 <h1>개인정보 처리방침</h1>
-<p class="date">시행일: 2025년 2월 21일</p>
+<p class="date">개정일 <time datetime="2026-11-08">2026년 11월 8일</time></p>
 
-<p>PhotoGem(이하 "앱")은 사용자의 개인정보를 소중히 여기며, 아래와 같이 개인정보 처리방침을 안내드립니다.</p>
+<h2>사진과 검토 기록</h2>
+<p>PhotoGem은 접근을 허용한 사진 보관함이나 직접 추가한 저장소에서 사진과 메타데이터를 읽어 유사한 사진을 찾고 비교합니다. iPhone과 iPad에서는 사진을 기기에서 분석합니다. Mac의 ‘사진 추천’도 기본 설정에서는 Mac에서 분석합니다. 분석 결과, 미리보기와 검토 기록을 기기에 저장해 다음 검토에 사용합니다. 시스템 설정에서 사진 접근 권한을 변경할 수 있습니다.</p>
 
-<h2>1. 수집하는 개인정보</h2>
-<p>PhotoGem은 어떠한 개인정보도 수집, 저장, 전송하지 않습니다. 앱은 네트워크 통신을 사용하지 않으며, 모든 데이터 처리는 사용자의 기기 내에서만 이루어집니다.</p>
-
-<h2>2. 사진 라이브러리 접근</h2>
-<p>앱은 유사 사진 분석을 위해 Apple Photos 라이브러리에 대한 접근 권한을 요청합니다. 접근된 사진 데이터는:</p>
+<h2>Mac에서 외부 AI로 사진을 비교할 때 (1.2.4부터)</h2>
+<p>Mac의 ‘사진 추천’ 설정에서 Anthropic, OpenAI 또는 Z.AI를 선택하고 본인의 API 키를 저장한 뒤 전송을 허용하면, PhotoGem이 선택한 업체에 직접 이미지를 보냅니다. 요청은 해당 업체의 API 계정에 연결되며, 업체는 이미지를 비교해 추천 결과를 반환합니다.</p>
 <ul>
-  <li>사용자의 기기를 벗어나지 않습니다</li>
-  <li>외부 서버로 전송되지 않습니다</li>
-  <li>앱 내에서 유사도 비교 목적으로만 사용됩니다</li>
+  <li><strong>사진 전체.</strong> 그룹별 상위 후보 사진을 최대 3장까지 축소한 미리보기로 보냅니다.</li>
+  <li><strong>얼굴 영역.</strong> 얼굴 전송을 허용하면 Mac이 한 그룹의 여러 사진에서 같은 인물을 따라가며 얼굴 주변을 자릅니다. 대상이 뚜렷하면 자동으로, 모호하면 사용자가 인물을 고른 뒤 최대 64장의 얼굴 영역을 한 요청으로 보내 표정과 선명도를 비교합니다. 옆에 있는 사람이 일부 보일 수 있습니다.</li>
 </ul>
+<p>전송 허용은 이후 이 Mac에서 실행하는 사진 추천과 단축어에도 적용됩니다. 중단하려면 ‘사진 추천’ 설정에서 ‘기기 내 분석 사용’을 선택하세요. API 키는 이 Mac의 키체인에 저장하며 같은 설정의 ‘키 삭제’에서 지울 수 있습니다. 이미 보낸 이미지와 요청 기록의 보관 및 삭제는 업체 정책과 사용자 계정 조건에 따릅니다. 해당 내용은 <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic</a>, <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI</a>, <a href="https://docs.z.ai/legal-agreement/privacy-policy">Z.AI</a>에서 확인할 수 있습니다.</p>
 
-<h2>3. 데이터 저장</h2>
-<p>앱의 설정 및 분석 결과는 기기 내 로컬 저장소(UserDefaults, Application Support)에만 저장되며, 외부로 전송되지 않습니다.</p>
+<h2>NAS와 Apple 서비스</h2>
+<p>NAS를 추가하면 PhotoGem은 사용자가 지정한 SMB 서버에 연결해 파일 목록, 사진, 메타데이터를 읽고 사용자가 요청한 파일 작업을 수행합니다. 저장한 NAS 비밀번호는 키체인에 보관합니다. 앱의 소스 설정에서 해당 연결을 제거할 수 있습니다.</p>
+<p>iCloud 사진을 사용하면 Apple 사진이 보관함에서 미리보기나 원본을 내려받고 보관함 변경 사항을 동기화할 수 있습니다. 사진을 지도에 표시하거나 촬영 장소의 이름을 찾을 때는 사진에 기록된 좌표를 Apple 지도 및 위치 서비스에서 사용할 수 있습니다.</p>
+<p>‘사진 분석 결과 공유 (iCloud)’를 켜면 PhotoGem은 여러 기기에서 같은 사진을 찾는 데 쓰는 시각적 지문과 파일·보관함 식별 정보 등을 암호화해 사용자의 iCloud Drive에 저장합니다. 이 동기화 파일에는 사진 이미지가 들어가지 않습니다. 암호화 키는 iCloud 키체인을 통해 기기 간에 공유할 수 있습니다. 같은 설정을 끄면 이 기기에서 지문 교환이 중단됩니다. 별도로 iCloud 키체인을 사용하면 저장한 NAS 비밀번호와 일부 검토·삭제 기록도 기기 간에 동기화될 수 있습니다. Apple 서비스의 데이터 처리에는 <a href="https://www.apple.com/legal/privacy/">Apple 개인정보 처리방침</a>이 적용됩니다.</p>
 
-<h2>4. 제3자 공유</h2>
-<p>PhotoGem은 어떠한 데이터도 제3자와 공유하지 않습니다. 앱에는 광고, 분석 도구, 추적기가 포함되어 있지 않습니다.</p>
+<h2>아동과 개인정보</h2>
+<p>PhotoGem은 아동을 대상으로 하지 않으며 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
 
-<h2>5. 아동 개인정보</h2>
-<p>PhotoGem은 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
-
-<h2>6. 변경 사항</h2>
-<p>본 개인정보 처리방침이 변경될 경우, 이 페이지를 통해 공지합니다.</p>
-
-<h2>7. 문의</h2>
-<p>개인정보 처리방침에 관한 문의는 아래로 연락 바랍니다.</p>
-<p>이메일: <a href="mailto:broccolidad57@gmail.com">broccolidad57@gmail.com</a></p>
+<h2>변경 사항과 문의</h2>
+<p>처리방침이 바뀌면 이 페이지에 개정일과 함께 게시합니다. 개인정보 처리나 삭제에 관한 문의는 <a href="mailto:broccolidad57@gmail.com">broccolidad57@gmail.com</a>으로 보내 주세요.</p>
 </section>
 
 <hr>
 
-<section id="en">
+<section id="en" lang="en">
 <h1>Privacy Policy</h1>
-<p class="date">Effective Date: February 21, 2025</p>
+<p class="date">Last updated <time datetime="2026-11-08">November 8, 2026</time></p>
 
-<p>PhotoGem ("the App") values your privacy. This policy explains how we handle your information.</p>
+<h2>Your photos and review history</h2>
+<p>PhotoGem reads photos and metadata from the photo library you allow it to access or from sources you add. It uses them to find and compare similar photos. Photo analysis runs on your iPhone or iPad. On Mac, Photo Picks also runs on-device by default. PhotoGem keeps analysis results, previews and review history on your device so you can continue reviewing your library. You can change photo access in system settings.</p>
 
-<h2>1. Information We Collect</h2>
-<p>PhotoGem does not collect, store, or transmit any personal information. The app does not use network communication, and all data processing occurs entirely on your device.</p>
-
-<h2>2. Photo Library Access</h2>
-<p>The app requests access to your Apple Photos library to analyze similar photos. All accessed photo data:</p>
+<h2>External AI comparison on Mac (version 1.2.4 and later)</h2>
+<p>In Photo Picks settings, you can choose Anthropic, OpenAI or Z.AI, save your own API key and allow PhotoGem to send images directly to that provider. Requests are associated with your API account. The provider compares the images and returns its recommendation.</p>
 <ul>
-  <li>Never leaves your device</li>
-  <li>Is never transmitted to external servers</li>
-  <li>Is used solely for similarity comparison within the app</li>
+  <li><strong>Whole Photo.</strong> PhotoGem sends resized previews of up to three top-ranked photos in a group.</li>
+  <li><strong>Face Crops.</strong> If you allow face sharing, your Mac follows a face across nearby photos and crops the area around it. When one subject stands out, PhotoGem can automatically send up to 64 crops in one request to compare expression and clarity. When the subject is ambiguous, you choose whom to compare. A crop may include part of someone nearby.</li>
 </ul>
+<p>Your choice applies to future Photo Picks scans on this Mac, including runs through Shortcuts. To stop sending images, select Use On-Device Review in Photo Picks settings. Your API key is stored in this Mac’s Keychain. Select Remove Key in the same settings to delete the saved key. The provider’s policies and your account terms govern the retention and deletion of images and request records it has already received. See the policies for <a href="https://privacy.claude.com/en/articles/7996866-how-long-do-you-store-my-organization-s-data">Anthropic</a>, <a href="https://developers.openai.com/api/docs/guides/your-data">OpenAI</a> and <a href="https://docs.z.ai/legal-agreement/privacy-policy">Z.AI</a>.</p>
 
-<h2>3. Data Storage</h2>
-<p>App settings and analysis results are stored only in local storage on your device (UserDefaults, Application Support) and are never transmitted externally.</p>
+<h2>NAS and Apple services</h2>
+<p>If you add a NAS, PhotoGem connects to the SMB server you specify to read file listings, photos and metadata and to perform file operations you request. Saved NAS passwords are kept in Keychain. You can remove the connection in the app’s source settings.</p>
+<p>If you use iCloud Photos, Apple Photos may download previews or originals and sync changes to your library. When showing a photo on a map or looking up its place name, PhotoGem can use Apple’s map and location services with the coordinates recorded in the photo.</p>
+<p>If you turn on “Share photo analysis across devices (iCloud),” PhotoGem encrypts visual fingerprints and identifying details about files or library items and stores them in your iCloud Drive so your devices can match photos. These sync files contain no photo images. The encryption key can sync through iCloud Keychain. Turn off this setting to stop fingerprint exchange on this device. Separately, when you use iCloud Keychain, saved NAS passwords and certain review and deletion records can sync between your devices. Apple handles data for its services under the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>.</p>
 
-<h2>4. Third-Party Sharing</h2>
-<p>PhotoGem does not share any data with third parties. The app contains no advertisements, analytics tools, or trackers.</p>
-
-<h2>5. Children's Privacy</h2>
+<h2>Children’s privacy</h2>
 <p>PhotoGem is not directed at children and does not knowingly collect personal information from children.</p>
 
-<h2>6. Changes</h2>
-<p>If this privacy policy is updated, changes will be posted on this page.</p>
-
-<h2>7. Contact</h2>
-<p>For questions about this privacy policy, please contact us at:</p>
-<p>Email: <a href="mailto:broccolidad57@gmail.com">broccolidad57@gmail.com</a></p>
+<h2>Updates and contact</h2>
+<p>We publish changes to this policy here with the revision date. For questions about data handling or deletion, email <a href="mailto:broccolidad57@gmail.com">broccolidad57@gmail.com</a>.</p>
 </section>
 
 </div>
